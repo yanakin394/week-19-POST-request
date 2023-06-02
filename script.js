@@ -14,13 +14,15 @@ function post () {
             "Content-type": "application/json; charset=UTF-8",
         }
     })
-}
-
-btn.addEventListener ('click', () => {
-    post();
-    postWrapper.innerHTML = `
-        <p class="posted__title">${postTitle}</p>
-        <p class="posted__text">${postText}</p>
+    .then(response => response.json())
+    .then((json) => {
+        console.log(json.title);
+        postWrapper.innerHTML = `
+        <p class="posted__title">${json.title}</p>
+        <p class="posted__text">${json.body}</p>
     `;
     
-});
+    })
+}
+
+btn.addEventListener ('click', post());
