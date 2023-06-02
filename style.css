@@ -1,0 +1,15 @@
+.title,
+.post__form,
+.post__wrapper {
+    text-align: center;
+}
+
+.post__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.posted__title {
+    font-weight: bolder;
+}
