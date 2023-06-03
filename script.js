@@ -1,5 +1,5 @@
-const postTitle = document.querySelector('.post__title').textContent;
-const postText = document.querySelector('.post__text').textContent;
+let postTitle = document.querySelector('.post__title');
+let postText = document.querySelector('.post__text');
 const postWrapper = document.querySelector('.post__wrapper');
 const btn = document.querySelector('.post__button');
 
@@ -21,8 +21,13 @@ function post () {
         <p class="posted__title">${json.title}</p>
         <p class="posted__text">${json.body}</p>
     `;
-    
+        
     })
 }
 
-btn.addEventListener ('click', post());
+btn.addEventListener ('click', event => {
+    event.preventDefault();
+    postTitle = document.querySelector('.post__title').value;
+    postText = document.querySelector('.post__text').value;
+    post();
+});
