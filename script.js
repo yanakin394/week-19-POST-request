@@ -1,7 +1,10 @@
 let postTitle = document.querySelector('.post__title');
 let postText = document.querySelector('.post__text');
-const postWrapper = document.querySelector('.post__wrapper');
+const postContainer = document.querySelector('.post__container');
 const btn = document.querySelector('.post__button');
+
+let postWrapper = document.createElement('div');
+postWrapper.classList.add('post__wrapper');
 
 function post () {
     fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -18,10 +21,10 @@ function post () {
     .then((json) => {
         console.log(json.title);
         postWrapper.innerHTML = `
-        <p class="posted__title">${json.title}</p>
-        <p class="posted__text">${json.body}</p>
+            <p class="posted__title">${json.title}</p>
+            <p class="posted__text">${json.body}</p>
     `;
-        
+    postContainer.appendChild(postWrapper);    
     })
 }
 
