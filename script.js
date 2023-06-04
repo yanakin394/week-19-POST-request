@@ -18,7 +18,7 @@ function post () {
     })
     .then(response => response.json())
     .then((json) => {
-        let postWrapper = document.createElement('div');
+        let postWrapper = document.createElement('div');    // отрисовка html разметки поста
         postWrapper.classList.add('post__wrapper');
         console.log(json.title);
         postWrapper.innerHTML = `
@@ -35,10 +35,10 @@ function post () {
 //добавляю обработчик событий для кнопки, для добавления поста
 btn.addEventListener ('click', event => {
     event.preventDefault();
-    if(postTitle.value === '' || postText.value === '') {
+    if(postTitle.value === '' || postText.value === '') {  //проверка на пустоту полей
         alert("Заполните поле ввода!");
     } else {
-    postTitle = document.querySelector('.post__title');
+    postTitle = document.querySelector('.post__title');   
     postText = document.querySelector('.post__text');
     post();
     }
