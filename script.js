@@ -35,7 +35,11 @@ function post () {
 //добавляю обработчик событий для кнопки, для добавления поста
 btn.addEventListener ('click', event => {
     event.preventDefault();
+    if(postTitle.value === '' || postText.value === '') {
+        alert("Заполните поле ввода!");
+    } else {
     postTitle = document.querySelector('.post__title');
     postText = document.querySelector('.post__text');
     post();
+    }
 });
